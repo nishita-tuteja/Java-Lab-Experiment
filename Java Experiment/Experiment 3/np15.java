@@ -1,0 +1,40 @@
+import java.util.Scanner;
+//remove duplicate
+
+public class np15 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+               System.out.print("Enter number of elements: ");
+        int n = scanner.nextInt();
+        int[] arr = new int[n];
+
+                System.out.println("Enter array elements:");
+        for (int i = 0; i < n; i++) {
+            arr[i] = scanner.nextInt();
+        }
+
+               int[] temp = new int[n];
+        int newLength = 0;
+
+        for (int i = 0; i < n; i++) {
+            boolean isDuplicate = false;
+            for (int j = 0; j < newLength; j++) {
+                if (arr[i] == temp[j]) {
+                    isDuplicate = true;
+                    break;
+                }
+            }
+            if (!isDuplicate) {
+                temp[newLength] = arr[i];
+                newLength++;
+            }
+        }
+        System.out.print("Array after removing duplicates: ");
+        for (int i = 0; i < newLength; i++) {
+            System.out.print(temp[i] + " ");
+        }
+
+        scanner.close();
+    }
+}
